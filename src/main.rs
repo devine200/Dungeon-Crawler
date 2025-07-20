@@ -2,7 +2,6 @@ mod camera;
 mod components;
 mod map;
 mod map_builder;
-mod player;
 mod spawner;
 mod systems;
 
