@@ -22,22 +22,6 @@ impl Map {
         ((y * SCREEN_WIDTH) + x) as usize
     }
 
-    pub fn render(&self, ctx: &mut BTerm) {
-        for y in 0..SCREEN_HEIGHT {
-            for x in 0..SCREEN_WIDTH {
-                let idx = Self::map_idx(x, y);
-                match self.tiles[idx] {
-                    TileType::Floor => {
-                        ctx.set(x, y, YELLOW, BLACK, to_cp437('.'));
-                    }
-                    TileType::Wall => {
-                        ctx.set(x, y, YELLOW, BLACK, to_cp437('#'));
-                    }
-                }
-            }
-        }
-    }
-
     pub fn in_bounds(&self, point: Point) -> bool {
         point.x >= 0 && point.x < SCREEN_WIDTH && point.y >= 0 && point.y < SCREEN_HEIGHT
     }
